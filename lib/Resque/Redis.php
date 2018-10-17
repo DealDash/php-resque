@@ -9,6 +9,11 @@
 class Resque_Redis
 {
     /**
+     * The default Redis Database number
+     */
+    const DEFAULT_DATABASE = 0;
+
+    /**
      * Redis namespace
      * @var string
      */
@@ -128,7 +133,7 @@ class Resque_Redis
 			}
 		}
 
-		if ($this->database !== null) {
+		if ($this->database !== null && intval($database, 10) !== self::DEFAULT_DATABASE) {
 			$this->driver->select($database);
 		}
 	}
