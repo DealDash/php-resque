@@ -22,6 +22,11 @@ class Resque_Redis
     private $server;
     private $database;
 
+    /**
+     * @var RedisCluster|Credis_Client
+     */
+    private $driver;
+
 	/**
 	 * @var array List of all commands in Redis that supply a key as their
 	 *	first argument. Used to prefix keys with the Resque namespace.
